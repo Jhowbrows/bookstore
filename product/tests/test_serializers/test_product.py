@@ -1,16 +1,17 @@
 import pytest
-from product.models import Category, Product
-from product.serializers import ProductSerializer
+
+from product.models import Product
 
 
 @pytest.mark.django_db
-def test_product_model():
+def test_create_product():
+    product = Product.objects.create(
+        title="Titulo",
+        description="Descrição",
+        price=1000.00
+    )
 
-    category = Category.objects.create(title='Aventura', slug='aventura')
-    product = Product.objects.create(title='A ilha do Tesouro', price=29.90)
-    product.category.add(category)
-
-    assert product.title == 'A ilha do Tesouro'
-    assert product.category.count() == 1
-    assert product.category.first().title == 'Aventura'
-    assert str(product) == 'A ilha do Tesouro'
+    assert product.title == "Titulo"
+    assert product.description == "Descrição"
+    assert product.price == 1000.00
+    assert product.id is not None
