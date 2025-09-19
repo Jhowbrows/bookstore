@@ -15,7 +15,7 @@ class CategoryOrderViewSet(APITestCase):
 
     def setUp(self):
         self.category = CategoryFactory(title="books")
-    
+
     def test_get_all_category(self):
         response = self.client.get(reverse("category-list", kwargs={"version": "v1"}))
 

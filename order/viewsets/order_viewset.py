@@ -1,8 +1,11 @@
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
+from rest_framework.authentication import (
+    SessionAuthentication,
+    BasicAuthentication,
+    TokenAuthentication,
+)
 from order.models import Order
 from order.serializer import OrderSerializer
-
 
 
 class OrderViewSet(ModelViewSet):
@@ -12,8 +15,5 @@ class OrderViewSet(ModelViewSet):
         TokenAuthentication,
     ]
 
-
     serializer_class = OrderSerializer
-    queryset = Order.objects.all().order_by('id')
-
-    
+    queryset = Order.objects.all().order_by("id")

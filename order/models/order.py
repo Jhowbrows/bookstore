@@ -8,4 +8,4 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
 
     class Meta:
-        ordering = ['id']
+        ordering = ["id"]
