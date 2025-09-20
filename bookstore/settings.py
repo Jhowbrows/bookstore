@@ -23,8 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-6q5o3pwc5c=aq@i+*(kdx!jqs9+32pueg-2d!=w_w-@d1jo+0s"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'Jhowbrows.pythonanywhere.com']
 
@@ -151,7 +150,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 #SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
 
 INTERNAL_IPS = [
