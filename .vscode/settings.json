@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./product/serializers"
+    ],
+    "makefile.configureOnOpen": true
+}
