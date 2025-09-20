@@ -19,7 +19,8 @@ RUN apt-get update && \
     curl \
     build-essential \
     libpq-dev \
-    gcc && \
+    gcc  \
+    git && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -sSL https://install.python-poetry.org | python3 - && \
