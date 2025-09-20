@@ -1,10 +1,4 @@
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.authentication import (
-    SessionAuthentication,
-    BasicAuthentication,
-    TokenAuthentication,
-)
-from rest_framework.permissions import IsAuthenticated
 
 
 from order.serializer.order_serializers import OrderSerializer
@@ -13,16 +7,8 @@ from product.serializers.product_serializer import ProductSerializer
 
 
 class ProductViewSet(ModelViewSet):
-    authentication_classes = [
-        SessionAuthentication,
-        BasicAuthentication,
-        TokenAuthentication,
-    ]
-    permission_classes = [IsAuthenticated]
     serializer_class = ProductSerializer
 
-    permission_classes = [IsAuthenticated]
-    serializer_class = OrderSerializer
 
     def get_queryset(self):
         return Product.objects.all().order_by("id")

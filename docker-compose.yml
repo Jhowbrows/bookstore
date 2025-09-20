@@ -1,11 +1,11 @@
-version: '3.8'
+version: '3.9'
 
 services:
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/app
+      - app_data:/usr/src/app/
     ports:
       - "8000:8000"
     env_file:
@@ -15,7 +15,9 @@ services:
     networks:
       - backend  
   db:
-    image: postgres:15-alpine
+    image: postgres:16-alpine
+    ports:
+      - 5433:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
@@ -30,3 +32,4 @@ networks:
 
 volumes:
   postgres_data:
+  app_data:
